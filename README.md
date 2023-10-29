@@ -29,6 +29,7 @@
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/62954f79-7e54-4580-a748-4a7cf8ce361f)
 
 - Account
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/6522ac61-af8b-4f6f-9a45-b4d2b3b0efc3)
 
 - Admin
@@ -52,22 +53,29 @@
 
 ### 5. SCREENSHOT OUTPUT
 - Tampilan Login
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/b380bc03-6c76-4b67-8368-279d443d75f4)
 
 - Tampilan Register
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/aff20f6d-349e-48ae-9dbf-de3e5264a29e)
 
 - Tampilan User
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/5ece082f-3fbc-4fd3-81d7-cbd8e2face95)
 
 - Tampilan Awal Admin
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/5d54f82e-d441-4b0b-a26c-37ac07c20101)
 
 - Tampilan CRUD Buku
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/0b76761c-dadc-476f-824c-10acf081ce2d)
 
 - Tampilan CRUD Karyawan
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/2e1bb4ec-615e-4de8-aa99-e35ed3ced0ef)
 
 - Tampilan Riwayat Peminjaman
+  
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/4b898830-b0ba-4554-8d7f-57ab11d1b256)
