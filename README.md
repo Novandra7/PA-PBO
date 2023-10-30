@@ -2,11 +2,21 @@
 
 ## deskripsi project
 
+Proyek Sistem Informasi Perpustakaan adalah aplikasi Java yang bertujuan untuk mengelola dan memantau operasi sehari-hari dari sebuah perpustakaan. Sistem ini dirancang untuk memudahkan pengelolaan koleksi buku, peminjaman, pengembalian, dan pengelolaan data anggota.
+
+DENGAN FITUR
+
+- Manajemen Karyawan
+- Manajemen Buku
+- Peminjaman
+- Statistik dan Laporan
+- Sistem otentikasi
+
 ### 1. FLOWCHART
 ![PA PBO](https://github.com/Novandra7/PA-PBO/assets/122107967/4a9399c0-de77-440f-89af-c867489af45b)
 
 ### 2. ERD
-
+![ERD](https://github.com/Novandra7/PA-PBO/assets/122107967/e923e393-e732-4c3c-bbc9-caa1ab41d6fe)
 
 ### 3. HIRARKI KELAS
 ![HIRARKI](https://github.com/Novandra7/PA-PBO/assets/122107967/d7972031-e809-4621-86c4-8db6c4f7672f)
