@@ -13,7 +13,7 @@ DENGAN FITUR
 - Sistem otentikasi
 
 ### 1. FLOWCHART
-![PA PBO](https://github.com/Novandra7/PA-PBO/assets/122107967/4a9399c0-de77-440f-89af-c867489af45b)
+![new fc (1)](https://github.com/Novandra7/PA-PBO/assets/122107967/48395052-fea1-4846-855e-43e160f7f43d)
 
 ### 2. ERD
 ![ERD](https://github.com/Novandra7/PA-PBO/assets/122107967/e923e393-e732-4c3c-bbc9-caa1ab41d6fe)
