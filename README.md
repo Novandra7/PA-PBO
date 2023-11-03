@@ -99,28 +99,124 @@ Codingan ini digunakan untuk mengelola koneksi ke database dan menjalankan query
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/91e49e0f-5a54-40a9-a9a9-8a28a94f22ea)
 
+Codingan di atas adalah definisi dari sebuah interface atau antarmuka dalam bahasa pemrograman Java, yaitu `InterfaceDatabase`. 
+1. Keyword `interface`:
+Interface (`InterfaceDatabase`) didefinisikan menggunakan kata kunci `interface`. Interface adalah sebuah kontrak di Java di mana hanya metode-metodenya dideklarasikan, tetapi tidak diimplementasikan. Kelas lain dapat mengimplementasikan metode-metode ini sesuai kebutuhan.
+2. Metode `executeSelectQuery`:
+Metode ini mendeklarasikan sebuah metode dengan nama `executeSelectQuery` yang mengembalikan objek `ResultSet`. Metode ini menerima satu parameter bertipe `String` yang merupakan query SQL seleksi. `executeSelectQuery` akan digunakan untuk menjalankan query seleksi pada database dan mengembalikan hasil query dalam bentuk objek `ResultSet`. Objek `ResultSet` digunakan untuk menyimpan hasil data dari query SQL.
+3. Metode `executeUpdateQuery`:
+Metode ini mendeklarasikan sebuah metode dengan nama `executeUpdateQuery` yang tidak mengembalikan nilai (`void`). Metode ini juga menerima satu parameter bertipe `String` yang merupakan query SQL pembaruan (update, insert, delete, dll.). `executeUpdateQuery` akan digunakan untuk menjalankan query pembaruan pada database. Metode ini akan digunakan untuk operasi-operasi yang memodifikasi data dalam database, seperti menambahkan, menghapus, atau mengubah data.
+
+Interface ini menyediakan definisi untuk metode-metode yang harus ada dalam kelas-kelas yang mengimplementasikannya. Kelas-kelas yang ingin berinteraksi dengan database perpustakaan harus mengimplementasikan interface `InterfaceDatabase`, yaitu melengkapi implementasi dari metode `executeSelectQuery` dan `executeUpdateQuery` sesuai dengan logika bisnis aplikasi tersebut.
+
 - Account
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/6522ac61-af8b-4f6f-9a45-b4d2b3b0efc3)
 
+1. Pewarisan (`extends ControllerDatabase`):
+Kelas `Account` mewarisi sifat dan metode dari kelas `ControllerDatabase`. Ini berarti `Account` memiliki akses ke metode-metode yang ada dalam `ControllerDatabase` karena mewarisi kelas tersebut.
+2. Variabel Instance:
+Kelas `Account` memiliki tiga variabel instance: `userId` (ID pengguna), `password` (kata sandi), dan `namaPengguna` (nama pengguna). Variabel-variabel ini digunakan untuk menyimpan informasi akun.
+3. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima tiga parameter: `userId`, `password`, dan `namaPengguna`. Ketika objek `Account` dibuat, nilai-nilai ini dapat diberikan ke variabel instance sesuai dengan parameter yang diterima.
+4. Metode Getters:
+Terdapat tiga metode `getUserId()`, `getNamaPengguna()`, dan `getPassword()`, yang digunakan untuk mengambil nilai dari variabel instance `userId`, `namaPengguna`, dan `password` secara terpisah. Metode-metode ini memungkinkan akses ke informasi akun dari luar kelas.
+5. Implementasi Metode dari `ControllerDatabase`:
+Kelas `Account` mengimplementasikan metode-metode yang didefinisikan dalam antarmuka `InterfaceDatabase` (yang diwarisi melalui `ControllerDatabase`). Metode `executeUpdateQuery` dan `executeSelectQuery` digunakan untuk menjalankan query pembaruan dan seleksi pada database. Implementasi metode ini memungkinkan objek `Account` untuk berinteraksi dengan database melalui kelas `ControllerDatabase`.
+
+Dengan menggunakan pewarisan dari `ControllerDatabase` dan implementasi metode-metode dari `InterfaceDatabase`, kelas `Account` dapat digunakan untuk mengelola data akun dalam aplikasi perpustakaan ini. Objek `Account` dapat menjalankan query SQL pada database dan mengambil atau memperbarui informasi akun sesuai kebutuhan aplikasi.
+
 - Admin
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/309606d0-7cb7-4651-96ce-17bb3bba6240)
+
+1. Pewarisan (`extends Account`):
+Kelas `Admin` mewarisi sifat dan metode dari kelas `Account`. Dengan kata lain, `Admin` merupakan turunan dari `Account` dan memiliki akses ke variabel-variabel instance (`userId`, `password`, dan `namaPengguna`) serta metode-metode (`getUserId()`, `getPassword()`, dan `getNamaPengguna()`) yang didefinisikan dalam kelas `Account`.
+2. Variabel Instance:
+Kelas `Admin` memiliki dua variabel instance: `noTelp` (nomor telepon) dan `values` (objek ResultSet). Variabel `noTelp` adalah variabel final yang digunakan untuk menyimpan nomor telepon admin, sementara `values` adalah variabel statis yang digunakan untuk menyimpan hasil dari query SQL.
+3. Objek ControllerDatabase:
+Kelas ini memiliki variabel statis `db` dari tipe `ControllerDatabase`. Variabel ini digunakan untuk membuat objek `ControllerDatabase`, yang nantinya dapat digunakan untuk menjalankan query SQL.
+4. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima empat parameter: `noTelp`, `userId`, `password`, dan `namaPengguna`. Konstruktor ini memanggil konstruktor dari kelas induk (`Account`) menggunakan kata kunci `super` dan menginisialisasi variabel instance `noTelp` dengan nilai dari parameter `noTelp`.
+5. Metode `getAdminAccount`:
+Metode ini adalah statis dan digunakan untuk mendapatkan akun admin dari database. Metode ini menerima sebuah query SQL sebagai parameter dan mengembalikan objek `ResultSet` yang berisi hasil dari query SQL tersebut. Metode ini menggunakan objek `db` (ControllerDatabase) untuk menjalankan query SQL.
+
+Kelas `Admin` ini dibuat untuk mengelola informasi akun admin dalam aplikasi perpustakaan ini. Dengan mewarisi dari `Account`, `Admin` memiliki akses ke informasi akun umum yang diperlukan, sementara metodenya memungkinkan pengambilan data akun admin dari database menggunakan objek `ControllerDatabase`. Variabel `values` digunakan untuk menyimpan hasil query sehingga dapat diakses di luar kelas `Admin`.
 
 - Buku
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/7f5dffb5-6f6b-4c71-b582-38335e3a5280)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/18d5ffba-fad8-4c7b-9de9-ab6702fdad5f)
 
+1. Variabel Instance:
+Kelas `Buku` memiliki empat variabel instance: `kodeBuku` (kode unik untuk buku), `judulBuku` (judul buku), `penulisBuku` (nama penulis buku), dan `statusPeminjaman` (status peminjaman buku). Variabel-variabel ini digunakan untuk menyimpan informasi tentang buku.
+2. Objek ControllerDatabase:
+Kelas ini memiliki variabel statis `db` dari tipe `ControllerDatabase`. Variabel ini digunakan untuk membuat objek `ControllerDatabase`, yang nantinya dapat digunakan untuk menjalankan query SQL.
+3. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima empat parameter: `kodeBuku`, `judulBuku`, `penulisBuku`, dan `statusPeminjaman`. Konstruktor ini digunakan untuk menginisialisasi variabel instance dengan nilai-nilai yang diberikan sebagai parameter.
+4. Metode Getters dan Setters:
+Terdapat metode-metode `getKodeBuku()`, `getJudulBuku()`, `getPenulisBuku()`, `getStatusPeminjaman()`, `setKodeBuku()`, `setJudulBuku()`, `setPenulisBuku()`, dan `setStatusPeminjaman()`. Metode-metode ini memungkinkan akses dan pengaturan nilai dari variabel instance `kodeBuku`, `judulBuku`, `penulisBuku`, dan `statusPeminjaman`.
+5. Metode `getBuku`:
+Metode ini adalah statis dan digunakan untuk mendapatkan data buku dari database. Metode ini menerima sebuah query SQL sebagai parameter dan mengembalikan objek `ResultSet` yang berisi hasil dari query SQL tersebut. Metode ini menggunakan objek `db` (ControllerDatabase) untuk menjalankan query SQL.
+6. Metode `setBuku`:
+Metode ini digunakan untuk menjalankan query SQL untuk memperbarui atau menyisipkan data buku ke database. Metode ini menerima sebuah query SQL sebagai parameter dan menjalankannya menggunakan objek `db` (ControllerDatabase).
+
+Kelas `Buku` ini dibuat untuk merepresentasikan buku dalam aplikasi perpustakaan ini. Dengan begitu, informasi buku dapat diambil dari database atau diperbarui ke database sesuai dengan kebutuhan aplikasi. Variabel-variabel instance ini memungkinkan penyimpanan dan manipulasi data buku dalam objek `Buku`.
+
 - Karyawan
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/9a4e02d0-c6e2-477b-ab1f-4e09cb48ad02)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/633e3ae4-5364-49d8-835d-7a8b85a920c3)
+
+1. Variabel Instance:
+Kelas `Karyawan` memiliki tiga variabel instance: `idKaryawan` (ID unik untuk karyawan), `namaKaryawan` (nama karyawan), dan `idPenanggungJawab` (ID penanggung jawab karyawan). Variabel-variabel ini digunakan untuk menyimpan informasi tentang karyawan.
+2. Objek ControllerDatabase:
+Kelas ini memiliki variabel statis `db` dari tipe `ControllerDatabase`. Variabel ini digunakan untuk membuat objek `ControllerDatabase`, yang nantinya dapat digunakan untuk menjalankan query SQL.
+3. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima tiga parameter: `idKaryawan`, `namaKaryawan`, dan `idPenanggungJawab`. Konstruktor ini digunakan untuk menginisialisasi variabel instance dengan nilai-nilai yang diberikan sebagai parameter.
+4. Metode Getters dan Setters:
+Terdapat metode-metode `getIdKaryawan()`, `getNamaKaryawan()`, `getIdPenanggungJawab()`, `setIdKaryawan()`, `setNamaKaryawan()`, dan `setIdPenanggungJawab()`. Metode-metode ini memungkinkan akses dan pengaturan nilai dari variabel instance `idKaryawan`, `namaKaryawan`, dan `idPenanggungJawab`.
+5. Metode `getKaryawan`:
+Metode ini adalah statis dan digunakan untuk mendapatkan data karyawan dari database. Metode ini menerima sebuah query SQL sebagai parameter dan mengembalikan objek `ResultSet` yang berisi hasil dari query SQL tersebut. Metode ini menggunakan objek `db` (ControllerDatabase) untuk menjalankan query SQL.
+6. Metode `setKaryawan`:
+Metode ini digunakan untuk menjalankan query SQL untuk memperbarui atau menyisipkan data karyawan ke database. Metode ini menerima sebuah query SQL sebagai parameter dan menjalankannya menggunakan objek `db` (ControllerDatabase).
+
+Kelas `Karyawan` ini dibuat untuk merepresentasikan karyawan dalam aplikasi perpustakaan ini. Dengan begitu, informasi karyawan dapat diambil dari database atau diperbarui ke database sesuai dengan kebutuhan aplikasi. Variabel-variabel instance ini memungkinkan penyimpanan dan manipulasi data karyawan dalam objek `Karyawan`.
 
 - Member
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/5d2d353a-1bac-4a63-b094-de86e9648030)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/99dc0a02-363f-4d8e-9027-16e57dc64871)
 
+1. Variabel Instance:
+Kelas `Member` memiliki sebuah variabel instance `statusMember` yang digunakan untuk menyimpan status keanggotaan member (misalnya, "mahasiswa", "siswa" atau "pekerja").
+2. Objek ControllerDatabase:
+Kelas ini memiliki variabel statis `db` dari tipe `ControllerDatabase`. Variabel ini digunakan untuk membuat objek `ControllerDatabase`, yang nantinya dapat digunakan untuk menjalankan query SQL.
+3. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima empat parameter: `statusMember`, `userId`, `password`, dan `namaPengguna`. Konstruktor ini memanggil konstruktor dari kelas induk (`Account`) menggunakan kata kunci `super` untuk menginisialisasi variabel instance dan metodenya.
+4. Metode Getters dan Setters:
+Terdapat metode `getStatusMember()` untuk mendapatkan nilai variabel `statusMember`, dan metode `setStatusMember(String statusMember)` untuk mengatur nilai variabel `statusMember`. Ada juga override dari metode `getPassword()`, `getNamaPengguna()`, dan `getUserId()` dari kelas `Account`.
+5. Metode `getMemberAccount`:
+Metode ini adalah statis dan digunakan untuk mendapatkan data member dari database. Metode ini menerima sebuah query SQL sebagai parameter dan mengembalikan objek `ResultSet` yang berisi hasil dari query SQL tersebut. Metode ini menggunakan objek `db` (ControllerDatabase) untuk menjalankan query SQL.
+6. Metode `setMemberAccount`:
+Metode ini adalah statis dan digunakan untuk menjalankan query SQL untuk memperbarui atau menyisipkan data member ke database. Metode ini menerima sebuah query SQL sebagai parameter dan menjalankannya menggunakan objek `db` (ControllerDatabase).
+
+Kelas `Member` ini dibuat untuk merepresentasikan anggota perpustakaan yang memiliki status keanggotaan tertentu. Dengan begitu, informasi anggota perpustakaan dapat diambil dari database atau diperbarui ke database sesuai dengan kebutuhan aplikasi. Variabel `statusMember` memungkinkan penyimpanan dan manipulasi status keanggotaan dalam objek `Member`.
+
 - Peminjaman
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/b0265e1d-a0b3-4e95-bfce-9065da13374d)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/7ae855fa-a655-4155-9961-0cd83ccbc3f8)
+
+1. Variabel Instance:
+Kelas `Peminjaman` memiliki beberapa variabel instance, yaitu `idPeminjaman` (ID unik untuk peminjaman), `userId` (ID unik untuk pengguna yang melakukan peminjaman), `kodeBuku` (kode unik untuk buku yang dipinjam), `tanggalPeminjaman` (tanggal ketika peminjaman dilakukan), dan `idKaryawan` (ID karyawan yang menangani peminjaman). Variabel-variabel ini digunakan untuk menyimpan informasi tentang peminjaman buku.
+2. Objek ControllerDatabase:
+Kelas ini memiliki variabel statis `db` dari tipe `ControllerDatabase`. Variabel ini digunakan untuk membuat objek `ControllerDatabase`, yang nantinya dapat digunakan untuk menjalankan query SQL.
+3. Konstruktor:
+Kelas ini memiliki sebuah konstruktor yang menerima lima parameter: `idPeminjaman`, `userId`, `kodeBuku`, `tanggalPeminjaman`, dan `idKaryawan`. Konstruktor ini digunakan untuk menginisialisasi variabel instance dengan nilai-nilai yang diberikan sebagai parameter.
+4. Metode Getters:
+Terdapat metode-metode `getIdPeminjaman()`, `getUserId()`, `getKodeBuku()`, `getTanggalPeminjaman()`, dan `getIdKaryawan()`. Metode-metode ini memungkinkan akses nilai dari variabel instance.
+5. Metode `getPeminjaman`:
+Metode ini adalah statis dan digunakan untuk mendapatkan data peminjaman dari database. Metode ini menerima sebuah query SQL sebagai parameter dan mengembalikan objek `ResultSet` yang berisi hasil dari query SQL tersebut. Metode ini menggunakan objek `db` (ControllerDatabase) untuk menjalankan query SQL.
+6. Metode `setPeminjaman`:
+Metode ini adalah statis dan digunakan untuk menjalankan query SQL untuk memperbarui atau menyisipkan data peminjaman ke database. Metode ini menerima sebuah query SQL sebagai parameter dan menjalankannya menggunakan objek `db` (ControllerDatabase).
+
+Kelas `Peminjaman` ini dibuat untuk merepresentasikan peminjaman buku dalam aplikasi perpustakaan ini. Dengan begitu, informasi peminjaman buku dapat diambil dari database atau diperbarui ke database sesuai dengan kebutuhan aplikasi. Variabel-variabel instance ini memungkinkan penyimpanan dan manipulasi data peminjaman dalam objek `Peminjaman`.
 
 ### 5. SCREENSHOT OUTPUT
 - Tampilan Login
