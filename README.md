@@ -236,31 +236,47 @@ Kelas `Peminjaman` ini dibuat untuk merepresentasikan peminjaman buku dalam apli
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/b380bc03-6c76-4b67-8368-279d443d75f4)
 
+Gambar diatas merupakan tampilan login yang dimana untuk melakukan login sendiri user akan dimintai untuk menginputkan user id, password dan juga memilih role untuk masuk ke dalam aplikasi.
+
 - Tampilan Register
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/aff20f6d-349e-48ae-9dbf-de3e5264a29e)
+
+Gambar diatas merupakan tampilan pada saat member akan melakukan registrasi. Member akan dimintai untuk mengisikan data-data berupa user id, password dan juga nama. Setelah itu member dapat melakukan registrasi dengan men-klik button register.
 
 - Tampilan User
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/5ece082f-3fbc-4fd3-81d7-cbd8e2face95)
 
+Gambar diatas merupakan tampilan menu member yang berisikan data-data buku yang dapat dipinjam oleh member. Untuk melakukan peminjaman sendiri, member dapat memilih buku yang akan dipinjam kemudian memilih karyawan mana yang akan mengelola peminjaman tersebut. Setelah itu member dapat meng-klik button pinjam untuk melakukan peminjaman.
+
 - Tampilan Awal Admin
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/5d54f82e-d441-4b0b-a26c-37ac07c20101)
+
+Gambar diatas merupakan tampilan awal admin setelah melakukan login. Dari gambar tersebut ditampilkan beberapa pilihan data yang dapat dikelola oleh admin seperti buku, karyawan dan juga riwayat peminjaman.
 
 - Tampilan CRUD Buku
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/0b76761c-dadc-476f-824c-10acf081ce2d)
 
+Gambar diatas merupakan tampilan pada saat admin ingin melakukan pengelolaan data buku seperti melihat, menambahkan, mengubah ataupun menghapus data buku.
+
 - Tampilan CRUD Karyawan
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/2e1bb4ec-615e-4de8-aa99-e35ed3ced0ef)
+
+Gambar diatas merupakan tampilan pada saat admin ingin melakukan pengelolaan data karyawan seperti melihat, menambahkan, mengubah ataupun menghapus data karyawan.
 
 - Tampilan Riwayat Peminjaman
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/4b898830-b0ba-4554-8d7f-57ab11d1b256)
 
+Gambar diatas merupakan tampilan pada saat admin ingin melihat riwayat peminjaman buku yang telah dilakukan oleh member sebelumnya. Riwayat tersebut berisikan id peminjaman, id member, kode buku, tanggal peminjaman dan id karyawan yang mengelola peminjaman tersebut.
+
 - Tampilan Riwayat Peminjaman Member
 
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/dfd216b7-0e9b-4ac3-a6a8-d7fc7f29db7c)
+
+Gambar diatas merupakan tampilan pada saat member ingin melihat riwayat peminjaman buku yang telah dilakukannya sebelumnya. Riwayat tersebut berisikan id peminjaman, id member, kode buku, tanggal peminjaman dan id karyawan yang mengelola peminjaman tersebut.
 
