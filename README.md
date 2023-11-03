@@ -38,6 +38,9 @@ DENGAN FITUR
 - Controller Database
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/62954f79-7e54-4580-a748-4a7cf8ce361f)
 
+- InterfaceDatabse
+  ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/91e49e0f-5a54-40a9-a9a9-8a28a94f22ea)
+
 - Account
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/6522ac61-af8b-4f6f-9a45-b4d2b3b0efc3)
@@ -89,3 +92,8 @@ DENGAN FITUR
 - Tampilan Riwayat Peminjaman
   
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/4b898830-b0ba-4554-8d7f-57ab11d1b256)
+
+- Tampilan Riwayat Peminjaman Member
+
+  ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/dfd216b7-0e9b-4ac3-a6a8-d7fc7f29db7c)
+
