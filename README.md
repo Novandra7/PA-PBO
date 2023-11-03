@@ -27,7 +27,8 @@ Jika admin memilih riwayat peminjaman, maka program akan menampilkan riwayat pem
 Ketika user login sebagai member, maka user dapat melakukan peminjaman buku dengan memilih buku yang akan dipinjam, kemudian memilih karyawan yang akan bertanggung jawab terhadap peminjaman tersebut. Setelah itu program akan menambahkan data riwayat peminjaman tersebut kedalam database. Selain melakukan peminjaman, member juga dapat melihat riwayat peminjaman. Jika member memilih riwayat, maka akan ditampilakn riwayat peminjaman buku yang telah dilakukan oleh member sebelumnya. Jika member ingin membatalkan pilihan, maka member dapat memilih “batal” kemudian kembali memilih pilihan yang diinginkan entah itu meminjam ataupun melihat riwayat peminjaman. Setiap kali program selesai melakukan sebuah proses, maka program akan mengembalikan ke menu member termasuk pada saat jika member memilih log out.
 
 ### 2. ERD
-![ERD](https://github.com/Novandra7/PA-PBO/assets/122107967/e923e393-e732-4c3c-bbc9-caa1ab41d6fe)
+![Logical](https://github.com/Novandra7/PA-PBO/assets/122107967/a107b72e-2b9a-4d50-968b-5769ab968ebe)
+
 
 ### 3. HIRARKI KELAS
 ![HIRARKI](https://github.com/Novandra7/PA-PBO/assets/122107967/d7972031-e809-4621-86c4-8db6c4f7672f)
@@ -36,6 +37,17 @@ Ketika user login sebagai member, maka user dapat melakukan peminjaman buku deng
 - Controller Account
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/39afadb2-eab6-466c-a86d-c53bd4e45799)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/f9a85bb0-266a-4da3-82be-341d2f7f6908)
+
+1. Inisialisasi ArrayList:
+Codingan diatas dimulai dengan mendeklarasikan dan menginisialisasi `ArrayList` bernama `dataAccount`. `ArrayList` ini digunakan untuk menyimpan objek-objek akun, baik dari kelas `Admin` maupun `Member`.
+2. Metode `radioAdminSelected`:
+Metode ini mengambil data akun admin dari database dan menyimpannya dalam objek `Admin`. Kemudian melakukan pemeriksaan (looping) apakah inputan user sesuai dengan akun admin yang ada dalam `dataAccount`. Jika cocok, metode akan mengembalikan `true`, jika tidak, maka metode akan mengembalikan `false`.
+3. Metode `radioMemberSelected`:
+Metode ini mirip dengan `radioAdminSelected`, namun kali ini untuk akun member. Metode ini juga mengambil data akun member dari database dan membandingkannya dengan inputan user.
+4. Metode `registerAccount`:
+Metode ini digunakan untuk mendaftarkan akun baru dengan cara membuat objek `Account` baru dengan informasi yang dimasukkan oleh user dan menyimpannya dalam `dataAccount`. Selanjutnya, metode akan memasukkan data akun baru ke dalam tabel `akun` dan `member` di database.
+
+Codingan diatas berfokus pada manajemen akun dalam aplikasi perpustakaan. Ini mencakup pemeriksaan akun admin dan member, serta mendaftarkan akun baru ke dalam sistem. Data akun disimpan dalam bentuk objek dan juga disinkronkan dengan basis data menggunakan query SQL.
   
 - Controller Admin
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/09120f55-76c3-42f8-9101-c2d591e38a38)
@@ -46,8 +58,42 @@ Ketika user login sebagai member, maka user dapat melakukan peminjaman buku deng
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/2a61afe4-7a02-4064-8f41-c49c2ba3e274)
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/f061dc30-df55-4fa9-80a6-f5fdbc20baee)
 
+1. Deklarasi ArrayList:
+Codingan diatas dimulai dengan mendeklarasikan dan menginisialisasi dua ArrayList, yaitu `dataBukudanKaryawandanPeminjaman` dan `dataPeminjaman`. ArrayList pertama digunakan untuk menyimpan objek buku dan karyawan, serta data peminjaman, sementara ArrayList kedua digunakan khusus untuk menyimpan data peminjaman.
+2. Metode `createTableContent`:
+Metode ini digunakan untuk mengambil data dari tabel buku, karyawan, atau peminjaman dalam database dan menyimpannya dalam bentuk objek Buku, Karyawan, atau Peminjaman. Metode ini menggunakan argumen `tableName` untuk menentukan jenis data yang akan diambil dari database dan kemudian hasilnya disimpan dalam ArrayList `dataBukudanKaryawandanPeminjaman` dan metode mengembalikan ArrayList ini.
+3. Metode `showTableContent`:
+Metode ini mengonversi data objek buku, karyawan, atau peminjaman ke dalam bentuk array string. Data yang disimpan dalam ArrayList `tableContent` diubah menjadi array string dan disimpan dalam ArrayList `rows`, yang kemudian akan dikembalikan.
+4. Metode `insertDataBuku` dan `insertDataKaryawan`:
+Metode-metode ini digunakan untuk menyisipkan atau menambahkan data buku dan karyawan baru ke dalam database. Metode ini membuat objek Buku atau Karyawan baru dan menyimpannya dalam ArrayList `dataBukudanKaryawandanPeminjaman`. Data baru juga disimpan dalam tabel `buku` atau `karyawan` dalam database.
+5. Metode `deleteDataBuku` dan `deleteDataKaryawan`:
+Metode-metode ini digunakan untuk menghapus data buku atau karyawan dari database dan ArrayList `dataBukudanKaryawandanPeminjaman`. Objek buku atau karyawan yang sesuai dihapus dari ArrayList dan juga dari tabel `buku` atau `karyawan` dalam database.
+6. Metode `setTextFieldBuku` dan `setTextFieldKaryawan`:
+Metode-metode ini digunakan untuk mengisi kolom teks dalam interface user dengan data buku atau karyawan yang sesuai ketika user memilih baris tertentu di tabel.
+7. Metode `updateDataBuku` dan `updateDataKaryawan`:
+Metode-metode ini digunakan untuk memperbarui data buku atau karyawan dalam database dan ArrayList `dataBukudanKaryawandanPeminjaman`. Objek buku atau karyawan yang sesuai diperbarui dengan nilai baru dalam ArrayList dan juga dalam tabel `buku` atau `karyawan` dalam database.
+8. Metode `setRadioId` dan `getIdPeminjaman`:
+`setRadioId` mengambil ID karyawan dari database dan mengembalikannya dalam bentuk ArrayList string. `getIdPeminjaman` mengambil ID peminjaman dari database dan mengembalikannya dalam bentuk integer.
+9. Metode `createRiwayatPeminjaman` dan `getRiwayatById`:
+`createRiwayatPeminjaman` digunakan untuk mencatat riwayat peminjaman baru ke dalam database dan ArrayList `dataPeminjaman`. `getRiwayatById` mengambil riwayat peminjaman berdasarkan ID pengguna dan mengembalikannya dalam bentuk ArrayList array objek.
+
+Codingan ini berinteraksi dengan database menggunakan query SQL, mengubah data ke dalam objek Java, dan menyimpannya dalam ArrayList untuk pengolahan lebih lanjut dalam aplikasi.
+
 - Controller Database
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/62954f79-7e54-4580-a748-4a7cf8ce361f)
+
+Codingan diatas adalah implementasi dari kelas `ControllerDatabase`. Kelas ini bertanggung jawab untuk mengelola koneksi ke database MySQL dan menjalankan query SQL untuk operasi pemilihan (select) dan pembaruan (update) data.
+1. Deklarasi Variabel:
+Codingan diatas mendeklarasikan beberapa variabel, termasuk `Connection con`, `Statement st`, dan `ResultSet rs`. `Connection` digunakan untuk mengelola koneksi ke database, `Statement` digunakan untuk mengirim pernyataan SQL ke database, dan `ResultSet` digunakan untuk menyimpan hasil query.
+2. Konstruktor `ControllerDatabase`:
+Konstruktor ini dipanggil saat objek dari kelas `ControllerDatabase` dibuat. Dalam konstruktor ini, koneksi ke database MySQL diinisialisasi menggunakan `DriverManager.getConnection()`. Jika koneksi gagal, pesan kesalahan akan ditampilkan menggunakan `JOptionPane`.
+3. Metode `executeSelectQuery`:
+Metode ini menerima sebuah query SQL sebagai parameter (`qq`), menjalankannya menggunakan objek `Statement`, dan mengembalikan hasil query dalam bentuk `ResultSet`. Metode ini digunakan untuk menjalankan query seleksi dan mengambil data dari database.
+4. Metode `executeUpdateQuery`:
+Metode ini menerima sebuah query SQL sebagai parameter (`query`), menjalankannya menggunakan objek `Statement`, dan tidak mengembalikan nilai. Metode ini digunakan untuk menjalankan query pembaruan, seperti operasi penambahan, penghapusan, atau perubahan data di database.
+
+Kelas `ControllerDatabase` mengimplementasikan `InterfaceDatabase` yang berisi definisi metode-metode terkait database lainnya.
+Codingan ini digunakan untuk mengelola koneksi ke database dan menjalankan query SQL dalam konteks aplikasi perpustakaan. Codingan ini menggunakan JDBC (Java Database Connectivity) untuk berinteraksi dengan basis data MySQL.
 
 - InterfaceDatabse
   
