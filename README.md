@@ -29,6 +29,15 @@ Ketika user login sebagai member, maka user dapat melakukan peminjaman buku deng
 ### 2. ERD
 ![Logical](https://github.com/Novandra7/PA-PBO/assets/122107967/a107b72e-2b9a-4d50-968b-5769ab968ebe)
 
+Dalam ERD ini, terdapat entitas utama yang melibatkan tiga jenis pengguna: admin, member, dan karyawan. Admin bertanggung jawab atas pengelolaan buku dalam perpustakaan, termasuk menambahkan, mengubah, dan menghapus data buku. Member dapat melakukan peminjaman buku, tetapi hanya satu buku dalam satu waktu. Setelah mengembalikan buku, member dapat meminjam buku lainnya. Karyawan berperan dalam memeriksa status peminjaman yang dilakukan oleh member.
+
+Konsep supertype dan subtype digunakan untuk membedakan antara admin dan member sebagai subtype dari entitas akun. Admin dan member memiliki atribut khusus, namun keduanya merupakan jenis akun dalam sistem perpustakaan.
+
+Dalam hubungan antar entitas, terdapat keterkaitan atau relasi wajib (mandatory) dan opsional. Admin memiliki relasi yang wajib dengan buku, yang berarti admin harus mengelola buku dalam sistem. Karyawan memiliki relasi yang wajib dengan peminjaman, mengindikasikan bahwa karyawan bertanggung jawab memeriksa peminjaman yang dilakukan oleh member. Di sisi lain, hubungan antara member dan peminjaman bersifat opsional, yang berarti seorang member tidak wajib melakukan peminjaman buku.
+
+Konsep non-transferability diterapkan pada relasi antara member dan peminjaman, yang berarti nilai dari entitas peminjaman tidak dapat dipindahkan antar member. Hal ini memastikan bahwa setiap peminjaman buku tetap terkait dengan member yang melakukan peminjaman.
+
+Rekursif digunakan untuk memodelkan hubungan antar karyawan. Rekursif memungkinkan fleksibilitas dalam memodelkan struktur hierarki antar karyawan, seperti atasan, bawahan, dan rekan kerja, tanpa perlu membuat banyak entitas terpisah. Setiap karyawan dapat memiliki hubungan dengan karyawan lainnya, tetapi tidak ada kewajiban bagi setiap karyawan untuk memimpin atau dipimpin oleh karyawan lainnya.
 
 ### 3. HIRARKI KELAS
 ![HIRARKI](https://github.com/Novandra7/PA-PBO/assets/122107967/d7972031-e809-4621-86c4-8db6c4f7672f)
