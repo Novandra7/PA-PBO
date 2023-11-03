@@ -42,6 +42,10 @@ Rekursif digunakan untuk memodelkan hubungan antar karyawan. Rekursif memungkink
 ### 3. HIRARKI KELAS
 ![HIRARKI](https://github.com/Novandra7/PA-PBO/assets/122107967/d7972031-e809-4621-86c4-8db6c4f7672f)
 
+Dalam pengembangan aplikasi perpustakaan ini, kami menerapkan konsep hirarki dengan super class `Akun`, yang memiliki dua sub class yaitu `Admin` dan `Member`. 
+Dalam hirarki ini, `Akun` yang adalah super class menyimpan atribut umum seperti user ID, nama pengguna, dan password. Sub class `Admin` memiliki kapabilitas untuk mengelola buku dalam perpustakaan, sementara sub class `Member` memiliki kapabilitas terkait peminjaman dan pengembalian buku.
+Penggunaan konsep hirarki kelas ini membantu dalam pemeliharaan sistem, memastikan fleksibilitas, dan memungkinkan pengembangan aplikasi perpustakaan yang efisien dan terstruktur.
+
 ### 4. SCREENSHOT CODINGAN DAN PENJELASAN
 - Controller Account
   ![image](https://github.com/Novandra7/PA-PBO/assets/122107967/39afadb2-eab6-466c-a86d-c53bd4e45799)
